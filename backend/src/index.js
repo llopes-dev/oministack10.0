@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const routes = require('./routes');
 
 
 const app = express();
@@ -12,6 +13,7 @@ mongoose.connect('mongodb://otimizarme:!1983sepol##@cluster0-shard-00-00-bvm49.m
 
 
 app.use(express.json());
+app.use(routes);
 
 // Métodos HTTP: GET, POST, PUT, DELETE
 
@@ -20,7 +22,4 @@ app.use(express.json());
 // Route Params:
 // Body:
 
-app.get('/' , (request, response)=>{
-    return response.json({message: 'Testando a conexão'});
-});
 app.listen(3333);
